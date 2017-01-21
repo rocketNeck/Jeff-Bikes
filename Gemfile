@@ -7,7 +7,7 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'toastr-rails'
 gem "figaro"
-gem 'sendgrid-rails', '~> 2.0', '>= 2.0.5'
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem 'omniauth'
 gem 'omniauth-facebook'
