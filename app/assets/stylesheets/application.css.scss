@@ -4,10 +4,50 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/***** globals ******/
+@charset "UTF-8";
 
 
-/****** avatar sizes *****/
+// Colors
+// ==================================================
+
+$white: #fff;
+
+$blue         : #03354a;
+$lavender-dark: #8a7c85;
+$lavender     : #70626d;
+$teal-light   : #cce4e3;
+$teal         : #7bc1bf;
+$yellow-dark  : #f39f4e;
+$yellow       : #fedb9e;
+$yellow-light : #feecd6;
+$mellon       : #ff7e82;
+$salmon-ish   : #ff5a5f;
+$dark-orange  : #fa0008;
+$red-orange   : #e00007;
+
+/**************************** globals ******/
+body {
+  color: $lavender;
+  background-color: $teal-light;
+}
+
+.container {
+  width: 80%;
+}
+
+
+/******************************* navbar *****/
+.navbar-default {
+  background-color: $white;
+}
+
+.navbar-default .navbar-brand {
+  color: $salmon-ish;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+/************************** avatar sizes *****/
 .avatar-small {
   width: 28px;
 }
@@ -25,23 +65,61 @@
 }
 
 
+/********************************* bootstrap overrides ****/
+.btn-primary.btn {
+  border: 1px solid $salmon-ish;
+  border-radius: 2px;
+  font-weight: bold;
+  background-color: $salmon-ish;
+  color: $white;
+  padding: 10px 25px;
+}
 
-/******* bike animation ********/
+.btn-primary.btn:hover, .btn-primary.btn:focus {
+  border-color: $mellon;
+  border-bottom-color: $dark-orange;
+  background-color: $mellon;
+  outline: none;
+}
 
-@charset "UTF-8";
+.btn-primary.btn:active {
+  border-color: $red-orange;
+  background-color: $red-orange;
+  outline: none;
+}
 
-// Colors
-// ==================================================
-$white: #fff;
+.btn-default.btn {
+  width: 100%;
+  border-radius: 2px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
 
-$blue         : #03354a;
-$lavender-dark: #8a7c85;
-$lavender     : #70626d;
-$teal-light   : #cce4e3;
-$teal         : #7bc1bf;
-$yellow-dark  : #f39f4e;
-$yellow       : #fedb9e;
-$yellow-light : #feecd6;
+.panel-default .panel-heading {
+  color: $lavender;
+  background-color: $teal-light;
+  font-size: 18px;
+  font-weight: 400px;
+}
+
+/******** row sizes **********/
+
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}  
+
+/********************** bike animation ********/
 
 // SVG
 // ==================================================
