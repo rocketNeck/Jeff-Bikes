@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'd6a26461ee9c82fe0bfad18d8b4be7d5fa9a140e752e1aab37f009f0abe26d6d2c24389081c193cf3be6d0d52e7b2a293557d43db2e55361b98fc9e1a000dcd3'
+  # config.secret_key = '41de9aad95ca23263aa7e3c6bf7ca8ea747d59960d77576cbf2f611435c542cee68dd4ea46659bed775dd2f6e745215d2e3f86e49db60e52eaff4c2ab9b9a419'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'Jeff @ JeffBikes <no-reply@jeffbikes.com>'
+  config.mailer_sender = 'Jesse @ BareBNB <no-reply@barebnb.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -108,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '803f7873a1f0a1b013270ca979eaa13d6ee0bfa6114d7ae5c800a80534f3691e2b1d80cd4783326921085310932d6cb62b1f4ba39cfd3aa55b27865323cbca1d'
+  # config.pepper = '1c0345750b356dddaf10a0e8de3fbe8776c1434eb593fbc7cb4fe0cef719d20500f95cf44a0e9dcd042fe557484c847360ac205fefb658370c65fe2edef5253e'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -119,7 +119,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 365.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -133,7 +133,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -271,4 +271,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  #
+
+  config.omniauth :facebook, ENV['facebook_app_id'], ENV['facebook_app_secret'], scope: 'email', info_fields: 'email, name', image_size: {width: '200', height: '200'}
+  #config.omniauth :google_oauth2, ENV['google_oauth_id'], ENV['google_oauth_secret']
 end
