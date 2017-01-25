@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+</html>
 <html>
   <head>
-    <title>JeffBikes</title>
+    <title>Jeff Bikes</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +10,14 @@
   </head>
 
   <body>
+
     <%= render 'shared/navbar' %>
-    <%= yield %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
