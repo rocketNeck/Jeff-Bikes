@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125043556) do
+ActiveRecord::Schema.define(version: 20170130005619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bikes", force: :cascade do |t|
+    t.string   "company"
+    t.string   "year"
+    t.string   "month"
+    t.string   "serial_number_1"
+    t.string   "serial_number_2"
+    t.string   "model"
+    t.string   "rim_size"
+    t.string   "bike_type"
+    t.string   "metal"
+    t.string   "top_tube"
+    t.string   "head_tube"
+    t.string   "color"
+    t.string   "serial_number_location"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_bikes_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,4 +60,5 @@ ActiveRecord::Schema.define(version: 20170125043556) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bikes", "users"
 end
