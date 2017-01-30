@@ -7,4 +7,5 @@ Rails.application.routes.draw do
              controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   resources :users, only: [:show]
   get '/privacy_policy' => 'pages#privacy_policy'
+  get '/about' => 'pages#about'
 end
