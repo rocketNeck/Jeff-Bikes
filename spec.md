@@ -2,23 +2,45 @@
 
 Specs:
 - [x] Using Ruby on Rails for the project
-- [ ] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes) 
-- [ ] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
+- [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
+- [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
 - [ ] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+        <!-- User has_many :comments through: :bikes -->
+- [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
+- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+      <!--  def self.tagged_with(name)
+              Tag.find_by_name!(name).bikes
+            end -->
 - [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
-- [ ] Include signup (how e.g. Devise)
-- [ ] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+      <!--
+      def all_tags=(all_tags) #for learn.co change this to an ordered hash of hashes   or params for the Tag objects via a nested form... in first version of this app I lacked the need for a nested form
+        self.tags = all_tags.split(", ").map do |name|
+          Tag.where(name: name.strip).first_or_create!
+        end
+      end
+
+      def all_tags
+        self.tags.map(&:name).join(", ")
+      end
+
+      def self.tagged_with(name)
+        Tag.find_by_name!(name).bikes
+      end
+
+        -->
+- [x] Include signup (how e.g. Devise)
+- [x] Include login (how e.g. Devise)
+- [x] Include logout (how e.g. Devise)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+        <!-- users/1/bikes(index) -->
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+        <!-- bikes/1/comments  -->
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
