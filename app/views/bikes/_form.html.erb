@@ -1,0 +1,107 @@
+<div class="panel panel-default">
+  <div class="panel-heading text-center">
+    Detail your bike!
+  </div>
+
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @bike, html: {multipart: true} do |f| %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Company</label>
+              <%= f.text_field :company, placeholder: "Name of company", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Model</label>
+              <%= f.text_field :model, placeholder: "Bike model", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Year</label>
+              <%= f.text_field :year, placeholder: "Year of manufacture", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Month</label>
+              <%= f.text_field :month, placeholder: "Month of manufacture", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Serial Number 1</label>
+              <%= f.text_field :serial_number_1, placeholder: "Serial number", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Serial Number 2</label>
+              <%= f.text_field :serial_number_2, placeholder: "Serial number", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Rim Size</label>
+              <%= f.text_field :rim_size, placeholder: "Size", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Bike Type</label>
+              <%= f.text_field :bike_type, placeholder: "Type", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Metal</label>
+              <%= f.text_field :metal, placeholder: "Metal", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Color</label>
+              <%= f.text_field :color, placeholder: "Color", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Top Tube</label>
+              <%= f.text_field :top_tube, placeholder: "Top tube", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Head Tube</label>
+              <%= f.text_field :head_tube, placeholder: "Head tube", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
