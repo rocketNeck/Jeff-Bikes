@@ -35,7 +35,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'font-awesome-sass'
-
+gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
 
 group :development, :test do
