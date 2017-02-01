@@ -13,6 +13,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
 
+        <li><a href="#"><i class="fa fa-bicycle"></i> Add a Bike</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i> Messages</a></li>
+
         <% if !user_signed_in? %>
           <li><%= link_to "Log In", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -24,14 +27,12 @@
               <%= current_user.fullname %><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Your Bikes</a></li>
-              <li><a href="#">Messages</a></li>
               <li><%= link_to "Profile", user_path(current_user.id) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% end %>
-
 
       </ul>
     </div><!--/.nav-collapse -->
