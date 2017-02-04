@@ -76,6 +76,7 @@ class BikesController < ApplicationController
                                :color,
                                :serial_number_location,
                                :user_id,
-                              ) # add image field for cloudinary fetch
+                               :photo
+                              ) 
   end
 end

@@ -35,8 +35,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'font-awesome-sass'
-gem 'carrierwave', '~> 1.0'
-gem 'cloudinary'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,5 +54,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+#for image management
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 3.5.0'
+gem 'fog'
+gem 'unf'
 ruby "2.4.0"

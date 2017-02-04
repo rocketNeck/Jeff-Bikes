@@ -1,0 +1,11 @@
+
+<h1>Image: </h1>
+
+<% if @bike.photo.blank? %>
+  <img src="http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg">
+<% else %>
+  <%= image_tag(@bike.photo.bike_listing.url) %>
+<% end %>
+<% if @bike.user_id == current_user.id %>
+  <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"} %>
+<% end %>
