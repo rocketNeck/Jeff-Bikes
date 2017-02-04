@@ -96,14 +96,49 @@
             </div>
           </div>
         </div>
+<hr>
+        <div class="row">
+          <div class="row">
+            <h4 class="text-center">Add some tags!</h4><br>
+          </div>
 
-        <div class="form-group">
-          <label for="photo">Photo</label>
-          <%= f.file_field :photo %>
+          <div class="row">
+            <%= f.fields_for :tags do |tag| %>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= tag.text_field :name, placeholder: "fast..", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= tag.text_field :name, placeholder: "fun..", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= tag.text_field :name, placeholder: "new..", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= tag.text_field :name, placeholder: "clasic..", class: "form-control" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+<hr>
+        <div class="row">
+            <h4 class="text-center">Add a photo!</h4><br>
+          <div class="form-group">
+            <%= f.file_field :photo, class: "btn btn-info" %>
+          </div>
         </div>
 
+<hr>
         <div class="actions">
-          <%= f.submit "Save", class: "btn btn-primary" %>
+          <%= f.submit "Save", class: "btn btn-primary btn-block" %>
         </div>
       <% end %>
     </div>
