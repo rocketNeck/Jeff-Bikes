@@ -6,6 +6,7 @@
 <% else %>
   <%= image_tag(@bike.photo.bike_listing.url) %>
 <% end %>
+
 <% if @bike.user_id == current_user.id %>
   <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"} %>
 <% end %>

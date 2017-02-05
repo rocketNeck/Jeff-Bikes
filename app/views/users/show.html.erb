@@ -1,22 +1,41 @@
 <div class="row">
-  <div class="col-md-3 z-depth-1">
+  <div class="col-md-3">
     <div class="center">
       <%= image_tag avatar_url(@user), class: "avatar-full" %>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <%= @user.fullname %>
+        Verification
       </div>
       <div class="panel-body">
         <%= @user.email %> <br>
-        <%= link_to "Edit Profile", edit_user_registration_path %>
+        Phone Number
       </div>
     </div>
   </div>
-  <div class="col-md-9" style="background-color:white;">
-   <!-- TODO: change discription to dynamic content on the User -->
-    <h2>Description</h2>
+  <div class="col-md-9">
+    <h2><%= @user.fullname %></h2>
 
-    <p>Locavore banjo authentic venmo. Farm-to-table sriracha next level poutine, dreamcatcher quinoa chia roof party disrupt succulents. Chillwave keffiyeh put a bird on it intelligentsia PBR&B. Flexitarian mustache iPhone, retro chambray jean shorts gentrify. Offal mlkshk ethical etsy live-edge literally. Pitchfork twee dreamcatcher cray, af pinterest microdosing godard YOLO. Thundercats enamel pin direct trade, post-ironic biodiesel williamsburg sriracha humblebrag unicorn you probably haven't heard of them vape.</p>
+
+    <h4>Bike Listings (<%= @bikes.length %>)</h4><br>
+    <div class="row">
+      <% @bikes.each do |bike| %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+            <% if bike.photo.blank? %>
+              <img src="http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg" class="img-responsive panel-img">
+            <% else %>
+              <%= image_tag bike.photo.bike_listing.url, class:"img-responsive panel-img" %>
+            <% end %>
+            </div>
+            <div class="panel-body">
+              <%= link_to bike.company, bike %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
