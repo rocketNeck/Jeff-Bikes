@@ -1,10 +1,12 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
-  #TODO must add photos to bikes
-
   def index
-    @bikes = Bike.all #TODO soon to use search params ###### .search(params[:field], params[:search])
+    if params[:tag]
+      @bikes = Bike.tagged_with(params[:tag])
+    else
+      @bikes = Bike.all #TODO soon to use search params ###### .search(params[:field], params[:search])
+    end
   end
 
   def show
