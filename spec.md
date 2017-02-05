@@ -8,14 +8,14 @@ Specs:
         <!-- User has_many :comments through: :bikes -->
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
       <!--  def self.tagged_with(name)
               Tag.find_by_name!(name).bikes
             end -->
-- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
+- [x] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
       <!--
-      def all_tags=(all_tags) #for learn.co change this to an ordered hash of hashes   or params for the Tag objects via a nested form... in first version of this app I lacked the need for a nested form
-        self.tags = all_tags.split(", ").map do |name|
+      def all_tags=(all_tags)
+        self.tags = all_tags.map do |i, name|
           Tag.where(name: name.strip).first_or_create!
         end
       end
@@ -23,11 +23,6 @@ Specs:
       def all_tags
         self.tags.map(&:name).join(", ")
       end
-
-      def self.tagged_with(name)
-        Tag.find_by_name!(name).bikes
-      end
-
         -->
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)

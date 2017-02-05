@@ -24,7 +24,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = current_user.bikes.build(bike_params)
-
+    binding.pry
     respond_to do |format| #web service support format response depending on http request
       if @bike.save
         format.html { redirect_to @bike, notice: 'Bike was successfully created.' }
@@ -69,14 +69,15 @@ class BikesController < ApplicationController
                                :serial_number_2,
                                :model,
                                :rim_size,
-                               :type,
+                               :bike_type,
                                :metal,
                                :top_tube,
                                :head_tube,
                                :color,
                                :serial_number_location,
                                :user_id,
-                               :photo
-                              ) 
+                               :photo,
+                               all_tags: [:id, :name1, :name2, :name3, :name4]
+                              )
   end
 end

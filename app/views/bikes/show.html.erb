@@ -9,3 +9,5 @@
 <% if @bike.user_id == current_user.id %>
   <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"} %>
 <% end %>
+
+<%= @bike.all_tags %>
