@@ -1,11 +1,12 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     if params[:tag]
       @bikes = Bike.tagged_with(params[:tag])
     else
-      @bikes = Bike.all #TODO soon to use search params ###### .search(params[:field], params[:search])
+      @bikes = Bike.search(params[:field], params[:search])
     end
   end
 
@@ -17,11 +18,6 @@ class BikesController < ApplicationController
   end
 
   def edit
-    if current_user.id == @bike.user.id ##TODO create admin role || current_user.is_admin?
-      #set @photos
-    else
-      redirect_to root_path, notice: "You don not have permission."
-    end
   end
 
   def create

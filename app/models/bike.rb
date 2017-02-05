@@ -10,6 +10,14 @@ class Bike < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  def self.search(field, search)
+    if search
+      where(field.to_sym => search)
+    else
+      all
+    end
+  end
+
   def all_tags=(all_tags)
     self.tags = all_tags.map do |i, name|
       Tag.where(name: name.strip).first_or_create!

@@ -10,21 +10,39 @@
       </button>
       <%= link_to "Jeff Bikes", root_path, class:"navbar-brand" %>
     </div>
+
+      <%= form_tag bikes_path, class: "navbar-form navbar-left", :method => 'get' do %>
+          <select name ="field" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><option value="company">Company</option></li>
+              <li><option value="serial_number_1">Serial Number</option></li>
+              <li><option value="year">Year</option></li>
+              <li><option value="model">Model</option></li>
+            </ul>
+          </select>
+      <%= text_field_tag(
+          :search,
+          params[:search],
+          placeholder: "Search",
+          class: "form-control"
+      ) %>
+      <%= submit_tag "Search", class:"btn btn-primary" %>
+      <% end %>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to new_bike_path do %>
-            <i class='fa fa-bicycle'></i> Add a Bike
-          <% end %>
-        </li>
-        <li>
-          <%= link_to root_path do %>
-            <i class="fa fa-envelope-o"></i> Messages
-          <% end %>
-        </li>
-      <% end %>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to new_bike_path do %>
+              <i class='fa fa-bicycle'></i> Add a Bike
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-envelope-o"></i> Messages
+            <% end %>
+          </li>
+        <% end %>
         <% if !user_signed_in? %>
           <li><%= link_to "Log In", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -33,7 +51,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= image_tag avatar_url(current_user), class: 'img-circle avatar-small' %>&nbsp;
-              <%= current_user.fullname %><span class="caret"></span></a>
+              <%= current_user.fullname %><span class="caret"></span>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="#">Your Bikes</a></li>
               <li><%= link_to "Profile", user_path(current_user.id) %></li>
