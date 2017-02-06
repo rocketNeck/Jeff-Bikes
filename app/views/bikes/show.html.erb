@@ -1,14 +1,40 @@
+<div class="container" style="background-color:white;">
+  <% if @bike.photo.blank? %>
+    <div class="jumbotron" style="background-image: url(http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg); margin-top-top:10px;" class="img-responsive"></div>
+  <% else %>
+    <div class="jumbotron img-responsive" style="background-image: url('<%= image_tag @bike.photo.bike_listing.url %>')"></div>
+  <% end %>
 
-<h1>Image: </h1>
+<br>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#Stats">Stats</a></li>
+    <li><a data-toggle="tab" href="#Comments">Comments</a></li>
+    <div class="pull-right">
+      <%= raw tag_links @bike.all_tags %> <!--tag_links from bikes_helper -->
+        <% if @bike.user_id == current_user.id %>
+          <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"}, class:"btn btn-primary" %>
+        <% end %>
+    </div>
 
-<% if @bike.photo.blank? %>
-  <img src="http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg">
-<% else %>
-  <%= image_tag(@bike.photo.bike_listing.url) %>
-<% end %>
+  </ul>
 
-<% if @bike.user_id == current_user.id %>
-  <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"} %>
-<% end %>
+  <div class="tab-content">
+    <div id="Stats" class="tab-pane fade in active">
+      <h3>Stats</h3>
+      <div class="row">
+        <div class="col-md-6">
 
-<%= raw tag_links(@bike.all_tags) %> <!--tag_links from bikes_helper -->
+        </div>
+        <div class="col-md-6">
+
+        </div>
+      </div>
+    </div>
+    <div id="Comments" class="tab-pane fade">
+      <h3>Comments</h3>
+      <%= render '/comments/comment_form' %>
+      <br>
+      <%= render :partial => @bike.comments %>
+    </div>
+  </div>
+</div>

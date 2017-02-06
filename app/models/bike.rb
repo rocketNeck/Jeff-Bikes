@@ -4,6 +4,7 @@ class Bike < ApplicationRecord
   has_many :bike_tags, dependent: :destroy
   has_many :tags, through: :bike_tags, dependent: :destroy
 
+  has_many :comments
 
   validates_presence_of :company, :on => :create, :message => "can't be blank"
 

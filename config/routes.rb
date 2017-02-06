@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :bikes
+
   root 'pages#home'
+
+  resources :bikes do
+    resources :comments, only: [:create, :destroy, :show, :index]
+  end
+
   devise_for :users,
              path: '',
              path_names: {sign_in:'login', sign_out: 'logout', edit: 'profile'},

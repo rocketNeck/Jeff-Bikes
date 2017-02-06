@@ -123,6 +123,18 @@ body {
   margin-bottom: 24px;
 }
 
+/********************jumbotron *****/
+.jumbotron {
+  background-size: 100% 100%;
+  min-height: 400px;
+  width: 100%;
+  height: 100%;
+  margin-top: 15px;
+}
+.show-page-img {
+  min-height: 300px;
+}
+
 /************ modify forms ***********/
 .form-group {
   margin-bottom: 25px;

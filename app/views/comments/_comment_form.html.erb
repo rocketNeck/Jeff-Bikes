@@ -1,0 +1,5 @@
+<%= form_for [@bike, Comment.new] do |f| %>
+  <p><%= f.label :content, "New Comment"%></p>
+  <p><%= f.text_area :content %></p>
+  <p><%= f.submit "Add Comment" %></p>
+<% end %>

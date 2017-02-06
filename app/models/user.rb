@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
   has_many :bikes
+  has_many :comments
+  has_many :comments, through: :bikes
 
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
