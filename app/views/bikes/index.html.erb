@@ -1,6 +1,28 @@
-<h1>bike index</h1>
+<div class="page-header">
+  <h1 style="color:white;text-shadow: 2px 2px 4px #000000; "><b>Check all of Jeff's awesome bikes!</b></h1>
+  <nav aria-label="Page navigation pull-right">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
 
  <% @bikes.each do |bike| %>
-  <li><%= bike.id %></li>
+
 
  <% end %>
