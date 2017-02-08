@@ -17,7 +17,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :bike_show do
-    process :resize_to_fill => [300,550]
+    process :resize_to_fill => [550,300]
   end
 
   version :thumb do

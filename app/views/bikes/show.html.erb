@@ -1,14 +1,18 @@
 <div class="container" style="background-color:white;">
-  <% if @bike.photo.blank? %>
-    <div class="jumbotron" style="background-image: url(http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg); margin-top-top:10px;" class="img-responsive"></div>
+  <% if @photo.blank? %>
+    <div class="bike-show-img-div">
+      <%= image_tag "http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg", class:"img-fluid center-block" %>
+    </div>
   <% else %>
-    <div class="jumbotron img-responsive" style="background-image: url('<%= image_tag @bike.photo.bike_listing.url %>')"></div>
+    <div class="bike-show-img-div">
+      <%= image_tag @photo.bike_show.url, class:"img-fluid center-block img-responsive" %>
+    </div>
   <% end %>
 
 <br>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#Stats">Stats</a></li>
-    <li><a data-toggle="tab" href="#Comments">Comments</a></li>
+    <li class="active"><a data-toggle="tab" href="#Comments">Comments</a></li>
+    <li><a data-toggle="tab" href="#Stats">Stats</a></li>
     <div class="pull-right">
       <%= raw tag_links @bike.all_tags %> <!--tag_links from bikes_helper -->
         <% if @bike.user_id == current_user.id %>
@@ -19,22 +23,55 @@
   </ul>
 
   <div class="tab-content">
-    <div id="Stats" class="tab-pane fade in active">
-      <h3>Stats</h3>
-      <div class="row">
-        <div class="col-md-6">
 
-        </div>
-        <div class="col-md-6">
-
-        </div>
-      </div>
-    </div>
-    <div id="Comments" class="tab-pane fade">
+    <div id="Comments" class="tab-pane active">
       <h3>Comments</h3>
       <%= render '/comments/comment_form' %>
       <br>
       <%= render :partial => @bike.comments %>
     </div>
+
+    <div id="Stats" class="tab-pane fade in">
+      <div class="col-md-12">
+          <h3>Stats</h3><hr>
+          <span class="pull-right">Uploaded: <%= @bike.created_at.strftime("%B %d, %Y")%></span>
+        <div class="row">
+            <div class="col-md-6">
+              <b>Company: </b><%= @bike.company %><br>
+              <b>Year: </b> <%= @bike.year %><br>
+              <b>Month: </b> <%= @bike.month %><br>
+              <b>Serial Number 1: </b> <%= @bike.serial_number_1 %><br>
+              <b>Serial Number 2: </b> <%= @bike.serial_number_2 %><br>
+              <b>Model: </b> <%= @bike.model %><br>
+              <b>Rim Size: </b> <%= @bike.rim_size %><br>
+              <b>Bike Type: </b> <%= @bike.bike_type %><br>
+              <b>Metal: </b> <%= @bike.bike_type %><br>
+              <b>Top Tube: </b> <%= @bike.top_tube %><br>
+              <b>Head Tube: </b> <%= @bike.head_tube %><br>
+              <b>Color: </b> <%= @bike.color %><br>
+              <b>Serial Number Location: </b><%= @bike.serial_number_location %>
+            </div>
+
+            <div class="col-md-6">
+              <% if @bike.user.bikes.length > 1 %>
+                <div class="list-group">
+
+                  <%= link_to "More Bike's from - #{@bike.user.fullname}", user_path(@bike.user), class:"list-group-item active" %>
+
+                  <%= link_to @bike.user.bikes[0].company, bike_path(@bike.user.bikes[0]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
+                  <%= link_to @bike.user.bikes[1].company, bike_path(@bike.user.bikes[1]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
+                  <%= link_to @bike.user.bikes[2].company, bike_path(@bike.user.bikes[2]), class:"list-group-item" unless @bike.user.bikes[3] == nil %>
+                  <%= link_to @bike.user.bikes[3].company, bike_path(@bike.user.bikes[3]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
+                </div>
+              <% else %>
+                <h3><%= link_to "Add More Bikes", new_bike_path %></h3>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>

@@ -6,7 +6,7 @@ class Bike < ApplicationRecord
 
   has_many :comments
 
-  validates_presence_of :company, :on => :create, :message => "can't be blank"
+  validates_presence_of :company, :notice => "Content cannot be blank"
 
 
   mount_uploader :photo, PhotoUploader
@@ -19,9 +19,12 @@ class Bike < ApplicationRecord
     end
   end
 
+### TODO currently unless every tag.name is filled in on the form
+###      we need to fix the valadation or the attribute writer to exclude nil values in the hash
+
   def all_tags=(all_tags)
     self.tags = all_tags.map do |i, name|
-      Tag.where(name: name.strip).first_or_create!
+      Tag.where(name: name.strip).first_or_create! unless name == ""
     end
   end
 

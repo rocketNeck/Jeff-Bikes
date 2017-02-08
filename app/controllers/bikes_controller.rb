@@ -11,6 +11,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @photo = @bike.photo
   end
 
   def new
@@ -22,7 +23,6 @@ class BikesController < ApplicationController
 
   def create
     @bike = current_user.bikes.build(bike_params)
-    binding.pry
     respond_to do |format| #web service support format response depending on http request
       if @bike.save
         format.html { redirect_to @bike, notice: 'Bike was successfully created.' }
@@ -56,8 +56,14 @@ class BikesController < ApplicationController
   private
 
   def set_bike
-    @bike = Bike.find_by_id(params[:id])
+    @bike = Bike.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, notice: "The resource you were looking for doesn't exist"
+
   end
+
+
+
 
   def bike_params
   params.require(:bike).permit(:company,

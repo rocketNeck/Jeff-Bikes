@@ -1,5 +1,5 @@
 <hr>
-<div class="comment">
+<div class="well">
   <p style="color: grey;">
     Posted <%= time_ago_in_words(comment.created_at)%> ago |
     <%= link_to user_path(comment.user) do %>
@@ -13,5 +13,4 @@
   <% if current_user.id == comment.user_id %>
     <%= link_to "Delete", bike_comment_url(@bike, comment.id), method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
-
 </div>
