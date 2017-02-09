@@ -6,8 +6,8 @@
 <table class="table table-hover ">
   <tbody>
     <% @bikes.each do |bike| %>
-      <%= link_to bikes_path(bike) do %>
         <tr>
+          <%= link_to(bike) do%>
           <th>
             <% if bike.photo.blank? %>
               <th scope="row"><%= image_tag "http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg", style: "width:100px;height:100px;" %></th>
@@ -19,8 +19,9 @@
           <td><%= bike.company%></td>
           <td><%= bike.id %></td>
           <td>Uploaded by: <br><%= bike.user.fullname %></td>
+          <% end %>
         </tr>
-      <% end %>
+
     <% end %>
   </tbody>
 </table>
