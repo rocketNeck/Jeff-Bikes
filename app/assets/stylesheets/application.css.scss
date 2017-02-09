@@ -200,6 +200,15 @@ tr {
   font-size: 3.5em;
 }
 
+.conversation {
+  color: $lavender-dark;
+  padding: 10px;
+
+}
+
+.conversation:hover, .conversation.focus {
+  background-color: #f4f4f5;
+}
 
 /********************** bike animation ********/
 
