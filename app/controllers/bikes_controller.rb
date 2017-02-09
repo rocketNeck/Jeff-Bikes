@@ -4,11 +4,13 @@ class BikesController < ApplicationController
 
   def index
     if params[:tag]
-      @bikes = Bike.tagged_with(params[:tag])
+      @bikes = Bike.tagged_with(params[:tag]).page(params[:page])
     else
-      @bikes = Bike.search(params[:field], params[:search])
+      @bikes = Bike.search(params[:field], params[:search]).page(params[:page])
     end
   end
+
+
 
   def show
     @photo = @bike.photo

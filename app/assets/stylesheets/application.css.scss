@@ -39,6 +39,10 @@ textarea {
   width: 80%;
 }
 
+tr {
+  background-color: $white;
+}
+
 
 /******************************* navbar *****/
 .navbar-default {
@@ -188,6 +192,14 @@ textarea {
   font-weight: bold;
   text-decoration: none;
 }
+
+/************************* alterations ********/
+.bikes-index-header {
+  color:$white;
+  text-shadow: 2px 2px 4px $blue;
+  font-size: 3.5em;
+}
+
 
 /********************** bike animation ********/
 

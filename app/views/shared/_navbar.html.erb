@@ -11,23 +11,24 @@
       <%= link_to "Jeff Bikes", root_path, class:"navbar-brand" %>
     </div>
 
-      <%= form_tag bikes_path, class: "navbar-form navbar-left", :method => 'get' do %>
-          <select name ="field" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="">
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><option value="company">Company</option></li>
-              <li><option value="serial_number_1">Serial Number</option></li>
-              <li><option value="year">Year</option></li>
-              <li><option value="model">Model</option></li>
-            </ul>
-          </select>
-      <%= text_field_tag(
-          :search,
-          params[:search],
-          placeholder: "Search",
-          class: "form-control"
-      ) %>
-      <%= submit_tag "Search", class:"btn btn-primary" %>
-      <% end %>
+<!-- TODO maybe make a partial -->
+    <%= form_tag bikes_path, class: "navbar-form navbar-left", :method => 'get' do %>
+        <select name ="field" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><option value="company">Company</option></li>
+            <li><option value="serial_number_1">Serial Number</option></li>
+            <li><option value="year">Year</option></li>
+            <li><option value="model">Model</option></li>
+          </ul>
+        </select>
+    <%= text_field_tag(
+        :search,
+        params[:search],
+        placeholder: "Search",
+        class: "form-control"
+    ) %>
+    <%= submit_tag "Search", class:"btn btn-primary" %>
+    <% end %>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">

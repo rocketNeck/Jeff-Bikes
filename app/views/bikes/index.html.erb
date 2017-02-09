@@ -1,28 +1,26 @@
 <div class="page-header">
-  <h1 style="color:white;text-shadow: 2px 2px 4px #000000; "><b>Check all of Jeff's awesome bikes!</b></h1>
-  <nav aria-label="Page navigation pull-right">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-</div>
+  <h1 class="bikes-index-header"><b>Check out all of Jeff's awesome bikes!</b></h1>
+  <%= paginate @bikes %>
+</div><br>
 
-
- <% @bikes.each do |bike| %>
-
-
- <% end %>
+<table class="table table-hover ">
+  <tbody>
+    <% @bikes.each do |bike| %>
+      <%= link_to bikes_path(bike) do %>
+        <tr>
+          <th>
+            <% if bike.photo.blank? %>
+              <th scope="row"><%= image_tag "http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg", style: "width:100px;height:100px;" %></th>
+            <% else %>
+              <th scope="row"><%= image_tag bike.photo.thumb.url %></th>
+            <% end %>
+          </th>
+          <td><%= bike.year %></td>
+          <td><%= bike.company%></td>
+          <td><%= bike.id %></td>
+          <td>Uploaded by: <br><%= bike.user.fullname %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

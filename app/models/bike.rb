@@ -8,6 +8,7 @@ class Bike < ApplicationRecord
 
   validates_presence_of :company, :notice => "Content cannot be blank"
 
+  paginates_per 20
 
   mount_uploader :photo, PhotoUploader
 
