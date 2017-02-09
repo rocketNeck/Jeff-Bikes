@@ -58,14 +58,13 @@ class BikesController < ApplicationController
   private
 
   def set_bike
-    @bike = Bike.find(params[:id])
+    def self.set_bike
+      @bike
+    end
+    @bike = Bike.find(params[:id]).first
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path, notice: "The resource you were looking for doesn't exist"
-
   end
-
-
-
 
   def bike_params
   params.require(:bike).permit(:company,
