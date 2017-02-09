@@ -16,13 +16,11 @@
                 </div>
                 <div class="col-md-2">
                   <%= other.fullname %><br>
-                <%= conversation.messages[0].message_time%>
+                  <%= conversation.messages.last.message_time%>
                 </div>
                 <div class="col-md-8">
-
-                 <%= conversation.messages[0]%>
+                  <%= conversation.messages.last.content%>
                 </div>
-                <%= conversation.messages.last.content %>
               </div>
             <% end %>
           <% end %>
