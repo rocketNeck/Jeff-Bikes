@@ -32,23 +32,25 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
+
+
+
+
+        <% if !user_signed_in? %>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "About", about_path %></li>
+        <% else %>
           <li>
             <%= link_to new_bike_path do %>
               <i class='fa fa-bicycle'></i> Add a Bike
             <% end %>
           </li>
           <li>
-            <%= link_to root_path do %>
+            <%= link_to conversations_path do %>
               <i class="fa fa-envelope-o"></i> Messages
             <% end %>
           </li>
-        <% end %>
-        <% if !user_signed_in? %>
-          <li><%= link_to "Log In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "About", about_path %></li>
-        <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= image_tag avatar_url(current_user), class: 'img-circle avatar-small' %>&nbsp;
