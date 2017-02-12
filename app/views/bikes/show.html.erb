@@ -15,9 +15,11 @@
     <li><a data-toggle="tab" href="#Stats">Stats</a></li>
     <div class="pull-right">
       <%= raw tag_links @bike.all_tags %> <!--tag_links from bikes_helper -->
-        <% if @bike.user_id == current_user.id || current_user.is_admin? %>
-          <%= link_to 'Edit', @bike, method: :update, class:"btn btn-primary" %>
-          <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"}, class:"btn btn-primary btn-small" %>
+        <% if current_user %>
+          <% if @bike.user_id == current_user.id || current_user.is_admin? %>
+            <%= link_to 'Edit', edit_bike_path(@bike), class:"btn btn-primary" %>
+            <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"}, class:"btn btn-primary btn-small" %>
+          <% end %>
         <% end %>
     </div>
 

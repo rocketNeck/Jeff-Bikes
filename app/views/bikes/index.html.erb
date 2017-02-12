@@ -7,19 +7,26 @@
   <tbody>
     <% @bikes.each do |bike| %>
         <tr>
-          <%= link_to(bike) do%>
           <th>
             <% if bike.photo.blank? %>
-              <th scope="row"><%= image_tag "http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg", style: "width:100px;height:100px;" %></th>
+              <th scope="row">
+                <%= link_to bike_path(bike) do %>
+                  <%= image_tag "http://res.cloudinary.com/lq0vmwmms/image/upload/v1486000461/mario-bike_tax1wa.jpg", style: "width:100px;height:100px;" %>
+                <% end %>
+              </th>
             <% else %>
-              <th scope="row"><%= image_tag bike.photo.thumb.url %></th>
+              <th scope="row">
+                <%= link_to bike_path(bike) do %>
+                  <%= image_tag bike.photo.thumb.url %>
+                <% end %>
+              </th>
             <% end %>
           </th>
           <td><%= bike.year %></td>
-          <td><%= bike.company%></td>
+          <td><%= link_to "#{bike.company}", bike_path(bike) %></td>
           <td><%= bike.id %></td>
-          <td>Uploaded by: <br><%= bike.user.fullname %></td>
-          <% end %>
+          <td>Uploaded by: <br><%= link_to "#{bike.user.fullname}", user_path(bike.user) %></td>
+
         </tr>
 
     <% end %>

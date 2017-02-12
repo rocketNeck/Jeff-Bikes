@@ -61,7 +61,7 @@ class BikesController < ApplicationController
     def self.set_bike
       @bike
     end
-    @bike = Bike.find(params[:id]).first
+    @bike = Bike.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path, notice: "The resource you were looking for doesn't exist"
   end

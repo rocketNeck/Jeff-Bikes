@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
+  before_action :authenticate_user!, only: [:update, :destroy]
 
   def create
     @bike = Bike.find(params[:bike_id])
