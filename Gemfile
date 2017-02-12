@@ -59,4 +59,5 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 3.5.0'
 gem 'fog'
 gem 'unf'
+
 ruby "2.4.0"
