@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sendgrid-rails', '~> 2.0', '>= 2.0.5'
 gem 'toastr-rails'
 gem "figaro"
-gem "devise", :github => 'plataformatec/devise', :branch => 'master'
+gem "devise", '~> 4.0.0.rc1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
