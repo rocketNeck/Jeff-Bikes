@@ -2,7 +2,7 @@
   <h1 class="bikes-index-header"><b>Check out all of Jeff's awesome bikes!</b></h1>
   <%= paginate @bikes %>
 </div><br>
-
+<% if @bikes.length > 0 %>
 <table class="table table-hover ">
   <tbody>
     <% @bikes.each do |bike| %>
@@ -26,9 +26,11 @@
           <td><%= link_to "#{bike.company}", bike_path(bike) %></td>
           <td><%= bike.id %></td>
           <td>Uploaded by: <br><%= link_to "#{bike.user.fullname}", user_path(bike.user) %></td>
-
         </tr>
-
     <% end %>
   </tbody>
 </table>
+<% else %>
+<h2>Sorry, there are no bikes with that discription..</h2>
+
+<% end %>
