@@ -11,15 +11,15 @@
             <%= link_to conversation_messages_path(conversation) do %>
               <div class="row conversation">
                 <div class="col-md-2">
-                  <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
+                  <%= image_tag avatar_url(other), class: "img-circle avatar-large" %>
 
                 </div>
                 <div class="col-md-2">
                   <%= other.fullname %><br>
-                  <%= conversation.messages.last.message_time%>
+                  <%= conversation.messages.last.message_time unless conversation.messages.blank?%>
                 </div>
                 <div class="col-md-8">
-                  <%= conversation.messages.last.content%>
+                  <%= conversation.messages.last.content unless conversation.messages.blank?%>
                 </div>
               </div>
             <% end %>
