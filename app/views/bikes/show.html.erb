@@ -15,11 +15,9 @@
     <li><a data-toggle="tab" href="#Stats">Stats</a></li>
     <div class="pull-right">
       <%= raw tag_links @bike.all_tags %> <!--tag_links from bikes_helper -->
-        <% if current_user %>
-          <% if @bike.user_id == current_user.id %>
-            <%= link_to 'Edit', edit_bike_path(@bike), class:"btn btn-primary" %>
-            <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"}, class:"btn btn-primary btn-small" %>
-          <% end %>
+        <% if current_user && @bike.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_bike_path(@bike), class:"btn btn-primary" %>
+          <%= link_to 'Delete', @bike, method: :delete, date: { confirm: "Are you sure?"}, class:"btn btn-primary btn-small" %>
         <% end %>
     </div>
 
@@ -58,23 +56,19 @@
             <div class="col-md-6">
               <% if @bike.user.bikes.length > 1 %>
                 <div class="list-group">
-
                   <%= link_to "More Bike's from - #{@bike.user.fullname}", user_path(@bike.user), class:"list-group-item active" %>
-
-                  <%= link_to @bike.user.bikes[0].company, bike_path(@bike.user.bikes[0]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
-                  <%= link_to @bike.user.bikes[1].company, bike_path(@bike.user.bikes[1]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
-                  <%= link_to @bike.user.bikes[2].company, bike_path(@bike.user.bikes[2]), class:"list-group-item" unless @bike.user.bikes[3] == nil %>
-                  <%= link_to @bike.user.bikes[3].company, bike_path(@bike.user.bikes[3]), class:"list-group-item" unless @bike.user.bikes[3] == nil%>
+                  <% @bike.first_5_user_bikes.each do |b| %>
+                    <%= link_to b.company, bike_path(b) , class:"list-group-item" unless b == nil %>
+                  <% end %>
                 </div>
               <% else %>
                 <h3><%= link_to "Add More Bikes", new_bike_path %></h3>
               <% end %>
             </div>
+
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>

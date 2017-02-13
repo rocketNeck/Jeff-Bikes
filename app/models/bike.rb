@@ -20,6 +20,10 @@ class Bike < ApplicationRecord
     end
   end
 
+  def first_5_user_bikes
+    self.user.bikes.first(5)
+  end
+
 ### TODO currently unless every tag.name is filled in on the form
 ###      we need to fix the valadation or the attribute writer to exclude nil values in the hash
 
