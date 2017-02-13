@@ -24,12 +24,12 @@ class Bike < ApplicationRecord
     self.user.bikes.first(5)
   end
 
-### TODO currently unless every tag.name is filled in on the form
-###      we need to fix the valadation or the attribute writer to exclude nil values in the hash
-
   def all_tags=(all_tags)
-    self.tags = all_tags.map do |i, name|
-      Tag.where(name: name.strip).first_or_create! unless name == ""
+    all_tags.each do |i, name|
+      if name != ""
+        t = Tag.where(name: name.strip).first_or_create!
+        self.tags << t
+      end
     end
   end
 
