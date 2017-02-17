@@ -57,8 +57,8 @@
               <%= current_user.fullname %><span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Your Bikes</a></li>
-              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li><%= link_to "Your bikes", user_path(current_user.id) %></li>
+              <li><%= link_to "Profile", edit_user_registration_path(current_user.id) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
