@@ -27,8 +27,8 @@ $red-orange   : #e00007;
 
 /**************************** globals ******/
 body {
-  color: $lavender;
-  background-color: $teal-light;
+  color: $blue;
+  background-color: $white;
 }
 
 textarea {
@@ -195,9 +195,13 @@ tr {
 
 /************************* alterations ********/
 .bikes-index-header {
-  color:$white;
+  color:$teal;
   text-shadow: 2px 2px 4px $blue;
   font-size: 3.5em;
+}
+
+.header-icons {
+  color: $salmon-ish;
 }
 
 .conversation {
@@ -425,15 +429,14 @@ tr {
 // ==================================================
 body {
   font-family: -apple-system, ".SFNSDisplay-Regular", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #fed879;
+  background-color: $white;
 }
 
 .footer {
   color: $lavender;
-  background-color: rgba($yellow-dark, 0.5);
+  background-color: $teal-light;
   text-align: center;
   padding: 1em;
-  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
