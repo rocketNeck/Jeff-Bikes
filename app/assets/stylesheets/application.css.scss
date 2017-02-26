@@ -74,6 +74,9 @@ tr {
 
 
 /********************************* bootstrap overrides ****/
+.btn {
+  padding-bottom: 3px;
+}
 .btn-primary.btn {
   border: 1px solid $salmon-ish;
   border-radius: 2px;
