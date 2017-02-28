@@ -14,11 +14,25 @@ class Bike < ApplicationRecord
 
   def self.search(field, search)
     if search
-      where(field.to_sym => search)
+      where(field.to_sym => search.upcase)
     else
       all
     end
   end
+
+####### overwrite methods to store for search ######
+  def company=(c)
+    super c.upcase
+  end
+
+  def serial_number_1=(s)
+    super s.upcase
+  end
+
+  def model=(m)
+    super m.upcase
+  end
+######################################
 
   def first_5_user_bikes
     self.user.bikes.first(5)
@@ -27,7 +41,7 @@ class Bike < ApplicationRecord
   def all_tags=(all_tags)
     all_tags.each do |i, name|
       if name != ""
-        t = Tag.where(name: name.strip).first_or_create!
+        t = Tag.where(name: name.strip.upcase).first_or_create!
         self.tags << t
       end
     end

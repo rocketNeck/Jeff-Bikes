@@ -4,7 +4,7 @@ class BikesController < ApplicationController
 
   def index
     if params[:tag]
-      @bikes = Bike.tagged_with(params[:tag]).page(params[:page])
+      @bikes = Bike.tagged_with(params[:tag]).page(params[:page]) #Kaminari helpers .page()
     else
       @bikes = Bike.search(params[:field], params[:search]).page(params[:page])
     end
