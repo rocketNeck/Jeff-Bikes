@@ -38,18 +38,18 @@
           <span class="pull-right">Uploaded: <%= @bike.created_at.strftime("%B %d, %Y")%></span>
         <div class="row">
             <div class="col-md-6">
-              <b>Company: </b><%= @bike.company %><br>
+              <b>Company: </b><%= @bike.company.titlecase %><br>
               <b>Year: </b> <%= @bike.year %><br>
-              <b>Month: </b> <%= @bike.month %><br>
+              <b>Month: </b> <%= @bike.month.titlecase %><br>
               <b>Serial Number 1: </b> <%= @bike.serial_number_1 %><br>
               <b>Serial Number 2: </b> <%= @bike.serial_number_2 %><br>
-              <b>Model: </b> <%= @bike.model %><br>
+              <b>Model: </b> <%= @bike.model.titlecase %><br>
               <b>Rim Size: </b> <%= @bike.rim_size %><br>
               <b>Bike Type: </b> <%= @bike.bike_type %><br>
               <b>Metal: </b> <%= @bike.bike_type %><br>
               <b>Top Tube: </b> <%= @bike.top_tube %><br>
               <b>Head Tube: </b> <%= @bike.head_tube %><br>
-              <b>Color: </b> <%= @bike.color %><br>
+              <b>Color: </b> <%= @bike.color.titlecase %><br>
               <b>Serial Number Location: </b><%= @bike.serial_number_location %>
             </div>
 
