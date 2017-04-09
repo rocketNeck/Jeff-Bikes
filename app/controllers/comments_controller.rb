@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to @bike}
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to @bike, alert: "Can not leave comment empty" }
+        format.html { redirect_to @bike, error: "Can not leave comment empty" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

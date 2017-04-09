@@ -10,8 +10,6 @@ class BikesController < ApplicationController
     end
   end
 
-
-
   def show
     @photo = @bike.photo
   end
@@ -30,7 +28,7 @@ class BikesController < ApplicationController
         format.html { redirect_to @bike, notice: 'Bike was successfully created.' }
         format.json { render :show, status: :created, location: @bike }
       else
-        format.html { render :new }
+        format.html { render :new, alert: "You must provide the company name."}
         format.json { render json: @bike.errors, status: :unprocessable_entity }
       end
     end

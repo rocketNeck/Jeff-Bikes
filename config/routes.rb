@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get '/privacy_policy' => 'pages#privacy_policy'
   get '/about' => 'pages#about'
 
-  get 'tags/:tag', to: 'bikes#index', as: "tag"
+  get 'tags/:tag', to: 'bikes#index', as: "tag" #rather than user/tags to show work I set this to display on the bikes/index and use the BikesHelper to build a tag list of links!!!
 end

@@ -110,25 +110,10 @@
           </div>
 
           <div class="row">
-            <%= f.fields_for :all_tags do |tag| %>
+            <%= f.fields_for :tags, @bike.tags do |tag| %>
               <div class="col-md-3">
                 <div class="form-group">
-                  <%= tag.text_field :name1, placeholder: "fast..", class: "form-control" %>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <%= tag.text_field :name2, placeholder: "fun..", class: "form-control" %>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <%= tag.text_field :name3, placeholder: "new..", class: "form-control" %>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <%= tag.text_field :name4, placeholder: "clasic..", class: "form-control" %>
+                  <%= tag.text_field :name,  placeholder: "fast..", class: "form-control" %>
                 </div>
               </div>
             <% end %>
