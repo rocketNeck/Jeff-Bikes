@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     @message = @conversation.messages.build(message_params)
     @messages = @conversation.messages.order("created_at DESC")
 
