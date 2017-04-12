@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @conversation.messages.new(message_params)
+    @message = @conversation.messages.build(message_params)
     @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
