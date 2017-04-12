@@ -12,11 +12,12 @@ class MessagesController < ApplicationController
   end
 
   def create
+    binding.pry
     @message = @conversation.messages.build(message_params)
     @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
-      #append the new message.
+      render 'messages/show', :layout => false
     end
   end
 
