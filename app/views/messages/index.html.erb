@@ -36,10 +36,25 @@
   $(document).ready(function() {
     $('.new_message').on('submit', function(e){
       e.preventDefault()
+      var url = this.action
 
+      data = {
+        'authenticity_token': $("input[name='authenticity_token']").val(),
+        'message': {
+          'user_id': <%= current_user.id %>,
+          'content': $("#message_content").val()
+        }
+      }
+      $.ajax({
+        type: this.method,
+        url: url,
+        data: data,
+        success: function(response){
+          debugger
+        }
       })
-    });
-  });
+    })
+  })
 </script>
 
 

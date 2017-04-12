@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      #append the new message.
     end
   end
 
