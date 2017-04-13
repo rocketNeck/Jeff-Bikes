@@ -6,9 +6,7 @@ $(document).ready(function() {
       type: this.method,
       url: this.action,
       data: $(this).serialize(),
-      success: function(response){
-        debugger
-      }
+      success: console.log("win")
     })
   })
 })
