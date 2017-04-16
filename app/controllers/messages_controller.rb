@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
-      render 'create.js', :layout => false
+      render json: @message
     end
   end
 
