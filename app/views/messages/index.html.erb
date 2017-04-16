@@ -42,8 +42,16 @@
 
       posting.done(function(data) {
         console.log(data);
+        $('textarea').val('')
         var messageBox = ""
-        // what i want to do $('#chat').first().prepend(messageBox)
+        messageBox += '<div class="panel">'
+        messageBox +=   '<div class="panel-body">'
+        messageBox +=      '<img src="'+ data.user.image + '"' + ' class="img-circle avatar-small">'
+        messageBox +=          '<strong>' + data.user.fullname + '</strong>'
+        messageBox +=            '<span class="pull-right">' + data.created_at + '</span>'
+        messageBox +=           '<br>'
+        messageBox +=           '<div class="row-space-2">' + data.content + '</div></div></div>'
+        $('#chat').first().prepend(messageBox)
       })
     })
   })
