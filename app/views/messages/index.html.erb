@@ -19,7 +19,7 @@
             <%= f.hidden_field :user_id, value: current_user.id %>
 
             <div class="actions">
-              <%= f.submit "Send Message", class: "btn btn-primary" %>
+              <%= f.submit "Send Message", class: "btn btn-primary", autocomplete:"off"%><!-- workaround for stuck button/ not working -->
             </div>
           <% end %>
 
