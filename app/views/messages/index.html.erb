@@ -42,20 +42,10 @@
 
       posting.done(function(data) {
         console.log(data);
+        var messageBox = ""
+        // what i want to do $('#chat').first().prepend(messageBox)
       })
     })
   })
 
 </script>
-
-
-<!-- <form class="new_message" id="new_message" action="/conversations/3/messages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="xx">
-            <div class="form-group">
-              <textarea id="new_message" placeholder="Add a personal message" class="form-control" name="message[content]"></textarea>
-            </div>
-            <input value="3" type="hidden" name="message[user_id]" id="message_user_id">
-
-            <div class="actions">
-              <input type="submit" name="commit" value="Send Message" class="btn btn-primary" data-disable-with="Send Message">
-            </div>
-</form> -->
