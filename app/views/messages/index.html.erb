@@ -43,19 +43,37 @@
 
       posting.done(function(data) {
         console.log(data);
-        var newMsg = new Message()
+        var newMsg = new Message(data)
         $('textarea').val('')
-        var messageBox = ""
-        messageBox += '<div class="panel">'
-        messageBox +=   '<div class="panel-body">'
-        messageBox +=      '<img src="'+ data.user.image + '"' + ' class="img-circle avatar-small">'
-        messageBox +=          '<strong>' + data.user.fullname + '</strong>'
-        messageBox +=            '<span class="pull-right">' + data.created_at + '</span>'
-        messageBox +=           '<br>'
-        messageBox +=           '<div class="row-space-2">' + data.content + '</div></div></div>'
-        $('#chat').first().prepend(messageBox)
-
+        $('#chat').first().prepend(newMsg.formatHTML())
       })
     })
   })
+
+
+  function Message(data) {
+    if(data.user.image){
+      this.image = data.user.image
+    }else {
+      this.image = "https://www.gravatar.com/avatar/" + data.user.email + ".jpg?d=identicon&s=150"
+    }
+    this.userId = data.user.id
+    this.fullname = data.user.fullname
+    this.created_at = data.created_at
+    this.content = data.content
+  }
+
+  Message.prototype.formatHTML = function() {
+    var formattedHTML = ""
+    formattedHTML += '<div class="panel">'
+    formattedHTML +=   '<div class="panel-body">'
+    formattedHTML +=      '<img src="'+ this.image + '"' + ' class="img-circle avatar-small">'
+    formattedHTML +=          '<strong>' + this.fullname + '</strong>'
+    formattedHTML +=            '<span class="pull-right">' + this.created_at + '</span>'
+    formattedHTML +=           '<br>'
+    formattedHTML +=           '<div class="row-space-2">' + this.content + '</div></div></div>'
+    return formattedHTML
+  }
+
+
 </script>
