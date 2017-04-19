@@ -56,6 +56,7 @@
       this.image = data.user.image
     }else {
       this.image = "https://www.gravatar.com/avatar/" + data.user.email + ".jpg?d=identicon&s=150"
+      //user email not formated for gravatar url properly need to use the helper method somehow
     }
     this.userId = data.user.id
     this.fullname = data.user.fullname
