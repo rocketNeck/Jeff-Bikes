@@ -19,7 +19,7 @@
             <%= f.hidden_field :user_id, value: current_user.id %>
 
             <div class="actions">
-              <%= f.submit "Send Message", class: "btn btn-primary", autocomplete:"off"%><!-- workaround for stuck button/ not working -->
+              <%= f.submit "Send Message", class: "btn btn-primary", autocomplete:"off"%>
             </div>
           <% end %>
 
@@ -34,6 +34,7 @@
 </div>
 <script type="text/javascript" charset="utf-8">
   $(function() {
+    $('[data-disable-with]').removeAttr('data-disable-with')
     $('form').submit(function(e){
       e.preventDefault();
 
@@ -42,6 +43,7 @@
 
       posting.done(function(data) {
         console.log(data);
+        var newMsg = new Message()
         $('textarea').val('')
         var messageBox = ""
         messageBox += '<div class="panel">'
@@ -52,8 +54,8 @@
         messageBox +=           '<br>'
         messageBox +=           '<div class="row-space-2">' + data.content + '</div></div></div>'
         $('#chat').first().prepend(messageBox)
+
       })
     })
   })
-
 </script>
