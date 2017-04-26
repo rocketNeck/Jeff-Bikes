@@ -69,7 +69,7 @@
     var formattedHTML = ""
     formattedHTML += '<div class="panel"><div class="panel-body">'
     formattedHTML += '<img src="'+ this.image + '"' + ' class="img-circle avatar-small">'
-    formattedHTML += '<strong>' + this.fullname + '</strong>'
+    formattedHTML += '<strong> ' + this.fullname + '</strong>'
     formattedHTML += '<span class="pull-right">' + moment(this.created_at).format("D-MMM-YYYY").toUpperCase() + '</span><br>'
     formattedHTML += '<div class="row-space-2">' + this.content + '</div></div></div>'
     return formattedHTML
