@@ -57,6 +57,7 @@
               <% if @bike.user.bikes.length > 1 %>
                 <div class="list-group">
                   <%= link_to "More Bike's from - #{@bike.user.fullname}",  user_path(@bike.user), class:"list-group-item active more-bikes-dropdown"%>
+
                   <% @bike.first_5_user_bikes.each do |b| %>
                     <%= link_to b.company, bike_path(b) , class:"list-group-item" unless b == nil %>
                   <% end %>
@@ -75,8 +76,13 @@
 
 <script>
   $(function() {
-    $('.more-bikes-dropdown').on('click', function(e) {
+    $(".more-bikes-dropdown").on('click', function(e) {
       e.preventDefault()
+
+      $.get(this.href).success(function(json){
+        console.log(json);
+      })
+
     })
 
   })
