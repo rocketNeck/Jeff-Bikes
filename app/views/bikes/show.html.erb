@@ -77,11 +77,12 @@
 <script>
   $(function() {
     $(".more-bikes-dropdown").on('click', function(e) {
-      e.preventDefault()
 
-      $.get(this.href).success(function(json){
-        console.log(json);
+      $.getJSON(this.href).success(function(json){
+        console.log(json)
       })
+
+      e.preventDefault()
 
     })
 
