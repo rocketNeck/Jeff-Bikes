@@ -79,5 +79,12 @@
       this.bikes = data.bikes
       this.fullname = data.fullname
     }
+
+    BikeUserOtherBikes.prototype.formatList = function(){
+      var bikes = this.bikes.map(function(bike){
+        return "<a class='list-group-item' href='/bikes/"+bike.id+"'> "+bike.company+"</a>"
+      });
+      return bikes
+    }
   });
 </script>
