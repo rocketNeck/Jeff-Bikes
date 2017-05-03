@@ -74,7 +74,7 @@
       let bikeList = $.getJSON(this.href)
 
       bikeList.success(function(json){
-
+        let listToAdd = new BikeUserOtherBikes(json)
       })
     });
 
