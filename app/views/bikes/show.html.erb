@@ -74,8 +74,10 @@
       let bikeList = $.getJSON(this.href)
 
       bikeList.success(function(json){
-        let listToAdd = new BikeUserOtherBikes(json)
-        $(".list-group").append(listToAdd.formatList())
+        if(json.bikes.length > 1){
+          let listToAdd = new BikeUserOtherBikes(json)
+          $(".list-group").append(listToAdd.formatList())
+        }
       })
     });
 
