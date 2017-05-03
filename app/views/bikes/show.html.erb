@@ -73,5 +73,11 @@
 
       let bikeList = $.getJSON(this.href)
     });
+
+    function BikeUserOtherBikes(data) {
+      this.userId = data.id
+      this.bikes = data.bikes
+      this.fullname = data.fullname
+    }
   });
 </script>
