@@ -54,9 +54,10 @@
             </div>
 
             <div class="col-md-6 other-user-bikes-list">
+              <div class="list-group">
+                <%= link_to "More Bike's from - #{@bike.user.fullname}",  user_path(@bike.user), class:"list-group-item active more-bikes-dropdown"%>
+              </div>
             </div>
-
-
 
           </div>
         </div>
@@ -68,21 +69,8 @@
 <script>
   $(function() {
     $(".more-bikes-dropdown").on('click', function(e) {
-
-      $.getJSON(this.href).success(function(json){
-        console.log(json)
-        if(json.bikes.length > 1){
-          console.log("not null");
-          // if so provide a link to click
-          // link will drop down a list of links to the other bikes the user has created
-        }else {
-          // hide link
-        }
-
-      })
-
       e.preventDefault()
-
+      
     });
   });
 </script>
