@@ -70,7 +70,8 @@
   $(function() {
     $(".more-bikes-dropdown").on('click', function(e) {
       e.preventDefault()
-      
+
+      let bikeList = $.getJSON(this.href)
     });
   });
 </script>
