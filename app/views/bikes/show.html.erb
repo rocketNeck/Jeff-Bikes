@@ -72,6 +72,10 @@
       e.preventDefault()
 
       let bikeList = $.getJSON(this.href)
+
+      bikeList.success(function(json){
+
+      })
     });
 
     function BikeUserOtherBikes(data) {
