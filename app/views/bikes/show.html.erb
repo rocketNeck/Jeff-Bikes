@@ -75,6 +75,7 @@
 
       bikeList.success(function(json){
         let listToAdd = new BikeUserOtherBikes(json)
+        $(".list-group").append(listToAdd.formatList())
       })
     });
 
