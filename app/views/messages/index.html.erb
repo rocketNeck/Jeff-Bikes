@@ -44,7 +44,6 @@
       var posting = $.post(this.action, values);
 
       posting.done(function(data) {
-        console.log(data);
         var newMsg = new Message(data)
         $('textarea').val('')
         $('#chat').first().prepend(newMsg.formatHTML())
@@ -53,16 +52,20 @@
   })
 
   function Message(data) {
-    if(data.user.image){
-      this.image = data.user.image
-    }else {
-      this.image = "https://www.gravatar.com/avatar/" + data.user.email + ".jpg?d=identicon&s=150"
-      //user email not formated for gravatar url properly need to use the helper method somehow
-    }
     this.userId = data.user.id
+    this.userEmail = data.user.email
     this.fullname = data.user.fullname
     this.created_at = data.created_at
     this.content = data.content
+
+    if(data.user.image){
+      this.image = data.user.image
+    }else {
+      let hash = md5(this.userEmail.toLowerCase())
+      this.image = "https://www.gravatar.com/avatar/" + hash + ".jpg?d=identicon&s=150"
+      //user email not formated for gravatar url properly need to use the helper method somehow
+    }
+
   }
 
   Message.prototype.formatHTML = function() {
