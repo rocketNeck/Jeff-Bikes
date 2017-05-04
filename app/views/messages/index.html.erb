@@ -40,11 +40,11 @@
     $('form').submit(function(e){
       e.preventDefault();
 
-      var values = $(this).serialize();
-      var posting = $.post(this.action, values);
+      let values = $(this).serialize();
+      let posting = $.post(this.action, values);
 
-      posting.done(function(data) {
-        var newMsg = new Message(data)
+      posting.done(function(data){
+        let newMsg = new Message(data)
         $('textarea').val('')
         $('#chat').first().prepend(newMsg.formatHTML())
       })
@@ -62,13 +62,13 @@
       this.image = data.user.image
     }else {
       let hash = md5(this.userEmail.toLowerCase())
-      this.image = "https://www.gravatar.com/avatar/" + hash + ".jpg?d=identicon&s=150"
+      this.image = `https://www.gravatar.com/avatar/${hash}.jpg?d=identicon&s=150`
     }
 
   }
 
   Message.prototype.formatHTML = function() {
-    var formattedHTML = ""
+    let formattedHTML = ""
     formattedHTML += '<div class="panel"><div class="panel-body">'
     formattedHTML += '<img src="'+ this.image + '"' + ' class="img-circle avatar-small">'
     formattedHTML += '<strong> ' + this.fullname + '</strong>'
